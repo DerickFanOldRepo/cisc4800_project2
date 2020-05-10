@@ -103,15 +103,6 @@ class App extends React.Component {
     this.setState({ items: data });
   }
 
-  // Currently gets the User from the API with a username
-  // TODO: implement some sort of authentication system
-  login = async () => {
-    const response = await fetch(`${this.url}/getUser?username=${this.state.username}`);
-    const json = await response.json();
-    const data = json["data"];
-    this.setState({ user: data });
-  }
-
   // Updates the data for the newItem object to be added to the database
   modifyNewItem = {
     updateNewItem: (value) => {
@@ -221,9 +212,13 @@ class App extends React.Component {
   // This method is called after the components mounts
   // It will load all the required information 
   componentDidMount() {
-    this.loadCategories();
-    this.loadListings();
-    this.loadItems();
+    try {
+      this.loadCategories();
+      this.loadListings();
+      this.loadItems();
+    } catch (error) {
+      console.log("SERVER DOWN");
+    }
   }
 
   // Renders the App component
