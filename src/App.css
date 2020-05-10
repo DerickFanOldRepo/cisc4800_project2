@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+}
+
+.category-container {
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+  height: 100vh;
+}
+
+.listing-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: scroll;
+  width: 70%;
+  height: 100vh;
+
+}
+
+img {
+  max-width: 15%;
+}
+
