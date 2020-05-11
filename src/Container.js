@@ -23,6 +23,7 @@ export const CategoryContainer = (props) => (
 export const ListingContainer = (props) => (
     <div className="listing-container">
         {
+
             // if props.listings is null then render a Error
             props.listings
                 ? props.listings.map(listing => (
@@ -47,10 +48,16 @@ export const UserContainer = (props) => (
                     : props.newListing ? (
                         <AddListingContainer items={props.items} categories={props.categories} modifyNewListing={props.modifyNewListing} />
                     )
-                        // Displays the option to add or logout
-                        : (
+                    // If props.viewSettings is true then the user is viewing settings
+                    : props.viewSettings ? (
+                        <UserSettingContainer setViewSettings={props.setViewSettings} deleteUser={props.deleteUser}/>
+                    )
+                    // Displays the option to add or logout
+                       : (
                             <div className="logged-in-container">
                                 <h1>{props.user["username"]}</h1>
+                                <button onClick={() => (props.filterListings("username", props.user["username"]))}>My Listings</button>
+                                <button onClick={() => (props.setViewSettings(true))}>Account Settings</button>
                                 <button onClick={() => (props.modifyNewItem.updateNewItem({}))}>Add Item</button>
                                 <button onClick={() => (props.modifyNewListing.updateNewListing({}))}>Post Listing</button>
                                 <button onClick={() => (props.modifyUser.logout())}>Logout</button>
@@ -177,3 +184,10 @@ export const AddListingContainer = (props) => (
         <button onClick={() => (props.modifyNewListing.updateNewListing(null))}>Back</button>
     </div>
 );
+
+// Component for user's settings
+export const UserSettingContainer = (props) => (
+    <div className="user-setting-container">
+        <button onClick={() => (props.deleteUser())}>Delete Account</button>
+    </div>
+)
