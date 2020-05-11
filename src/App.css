@@ -1,33 +1,115 @@
-* {
-  margin: 0;
-  padding: 0;
+:root {
+  --backgroud-color: #0A1128;
+  --card-color: #29335C;
+  --button-color: #29335C;
+  --text-color: #FFFFFF;
 }
 
-.container{
-  display: flex;
+* {
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: var(--backgroud-color);
+}
+
+.listing-container::-webkit-scrollbar {
+  width: 0px;
+}
+  
+.container {
   flex-direction: row;
   width: 100vw;
   height: 100vh;
 }
 
-.category-container {
-  display: flex;
-  flex-direction: column;
+.user-container {
   width: 15%;
-  height: 100vh;
+}
+
+.login-container {
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .listing-container {
-  display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  overflow: scroll;
   width: 70%;
-  height: 100vh;
+  justify-content: center;
+  /* height: 100vh; */
+  flex-wrap: wrap;
+  overflow: auto;
+}
 
+.listing {
+  justify-content: center;
+  width: 30%;
+  height: 40%;
+  text-align: center;
+  background-color: var(--card-color);
+  margin: 10px;
+}
+
+.image-container {
+  background-color: var(--card-color);
+  flex-direction: row;
+  height: 50%;
+  justify-content: center;
 }
 
 img {
-  max-width: 15%;
+  height: 100%;
 }
+
+.category-container {
+  width: 15%;
+}
+
+button {
+  font-size: 90%;
+  border: none;
+  outline: none;
+  display: inline-block;
+  text-decoration: none;
+  background-color: var(--button-color);
+  margin: 0 30px 0 30px;
+}
+
+.category-container button {
+  height: 8%;
+  margin-top: 10px; 
+  font-size: 1.5vw;
+}
+
+.user-container button {
+  margin-top: 10px;
+  font-size: 100%;
+  padding: 5px 10px 5px 10px
+}
+
+input, option, select {
+  color: black;
+  margin: 0 10% 0 10%;
+  font-size: 20px;
+}
+
+.listing button {
+  font-size: 200%;
+}
+
+.listing .sellerButton {
+  font-size: 150%
+}
+
+.logged-in-container button {
+  margin-top: 50px;
+  font-size: 30px;
+}
+
 

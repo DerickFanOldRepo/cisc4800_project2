@@ -204,7 +204,7 @@ class App extends React.Component {
       await this.loadListings();
     } else {
       await this.loadListings();
-      const filter = await this.state.listings.filter(listing => listing["category"] === value);
+      const filter = await this.state.listings.filter(listing => listing[type] === value);
       this.setState({ listings: filter });
     }
   }
@@ -224,9 +224,9 @@ class App extends React.Component {
   // Renders the App component
   render() {
     return <div className="container">
-      <CategoryContainer categories={this.state.categories} filterListings={this.filterListings} />
-      <ListingContainer listings={this.state.listings} />
       <UserContainer user={this.state.user} categories={this.state.categories} items={this.state.items} newUser={this.state.newUser} modifyNewUser={this.modifyNewUser} modifyUser={this.modifyUser} loggedIn={this.state.loggedIn} newListing={this.state.newListing} modifyNewListing={this.modifyNewListing} newItem={this.state.newItem} modifyNewItem={this.modifyNewItem} />
+      <ListingContainer listings={this.state.listings} filterListings={this.filterListings} />
+      <CategoryContainer categories={this.state.categories} filterListings={this.filterListings} />
     </div>
   }
 
